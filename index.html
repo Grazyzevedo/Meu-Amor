@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Feliz Aniversário, Amor! ❤️</title>
   <style>
     body {
@@ -16,6 +16,7 @@
       flex-direction: column;
       align-items: center;
       overflow-x: hidden;
+      position: relative;
     }
 
     h1 {
@@ -38,34 +39,46 @@
       border-radius: 8px;
       color: white;
       cursor: pointer;
-      margin-top: 30px;
+      margin: 20px 10px 40px;
       animation: fadeIn 4s ease-in-out;
+      user-select: none;
+      transition: background-color 0.3s ease;
     }
 
-    button:hover {
+    button:hover:enabled {
       background-color: #ff2f57;
     }
 
-    .gallery {
-      margin-top: 40px;
+    button:disabled {
+      background-color: #ffa1ab;
+      cursor: default;
+    }
+
+    .photo-book {
+      width: 300px;
+      height: 400px;
+      margin: 0 auto;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      overflow: hidden;
+      background: white;
+      position: relative;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .photo-book img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 15px;
+    }
+
+    .navigation {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
-      max-width: 1000px;
-      padding: 20px;
-    }
-
-    .gallery img {
-      width: 250px;
-      height: auto;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.05);
+      margin-bottom: 40px;
     }
 
     @keyframes fadeIn {
@@ -84,11 +97,35 @@
       z-index: -1;
     }
 
-    .heart {
+    .hearts span {
       position: absolute;
-      width: 80px;
-      height: 80px;
-      animation: float 6s linear infinite;
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 5s linear infinite;
+      border-radius: 5px 5px 0 0;
+    }
+
+    .hearts span::before,
+    .hearts span::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .hearts span::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .hearts span::after {
+      left: -10px;
+      top: 0;
     }
 
     @keyframes float {
@@ -105,60 +142,56 @@
   <button onclick="tocarMusica()">Tocar Nossa Música 🎶</button>
 
   <audio id="musica">
-    <source src="musica.mp3.mpeg" type="audio/mpeg">
+    <source src="musica.mp3.mpeg" type="audio/mpeg" />
     Seu navegador não suporta áudio.
   </audio>
 
-  <div class="gallery">
-    <img src="foto1.jpg" alt="Foto 1">
-    <img src="foto2.jpg" alt="Foto 2">
-    <img src="foto3.jpg" alt="Foto 3">
-    <img src="foto4.jpg" alt="Foto 4">
+  <div class="photo-book">
+    <img id="photo" src="foto1.jpg" alt="Foto 1" />
+  </div>
+
+  <div class="navigation">
+    <button id="prevBtn" onclick="changePhoto(-1)" disabled>← Página Anterior</button>
+    <button id="nextBtn" onclick="changePhoto(1)">Próxima Página →</button>
   </div>
 
   <div class="hearts">
-    <svg class="heart" style="left: 10%; animation-delay: 0s;">
-      <defs>
-        <pattern id="foto1" patternUnits="objectBoundingBox" width="1" height="1">
-          <image href="imagem_2025-06-12_191145133.png" width="80" height="80" preserveAspectRatio="xMidYMid slice" />
-        </pattern>
-      </defs>
-      <path d="M50 15 C20 -10, 0 30, 50 80 C100 30, 80 -10, 50 15 Z" fill="url(#foto1)" />
-    </svg>
-
-    <svg class="heart" style="left: 25%; animation-delay: 1s;">
-      <defs>
-        <pattern id="foto2" patternUnits="objectBoundingBox" width="1" height="1">
-          <image href="imagem_2025-06-12_191145133.png" width="80" height="80" preserveAspectRatio="xMidYMid slice" />
-        </pattern>
-      </defs>
-      <path d="M50 15 C20 -10, 0 30, 50 80 C100 30, 80 -10, 50 15 Z" fill="url(#foto2)" />
-    </svg>
-
-    <svg class="heart" style="left: 40%; animation-delay: 2s;">
-      <defs>
-        <pattern id="foto3" patternUnits="objectBoundingBox" width="1" height="1">
-          <image href="imagem_2025-06-12_191145133.png" width="80" height="80" preserveAspectRatio="xMidYMid slice" />
-        </pattern>
-      </defs>
-      <path d="M50 15 C20 -10, 0 30, 50 80 C100 30, 80 -10, 50 15 Z" fill="url(#foto3)" />
-    </svg>
-
-    <svg class="heart" style="left: 60%; animation-delay: 3s;">
-      <defs>
-        <pattern id="foto4" patternUnits="objectBoundingBox" width="1" height="1">
-          <image href="imagem_2025-06-12_191145133.png" width="80" height="80" preserveAspectRatio="xMidYMid slice" />
-        </pattern>
-      </defs>
-      <path d="M50 15 C20 -10, 0 30, 50 80 C100 30, 80 -10, 50 15 Z" fill="url(#foto4)" />
-    </svg>
+    <span style="left: 10%; animation-delay: 0s;"></span>
+    <span style="left: 25%; animation-delay: 1s;"></span>
+    <span style="left: 40%; animation-delay: 2s;"></span>
+    <span style="left: 60%; animation-delay: 3s;"></span>
+    <span style="left: 75%; animation-delay: 4s;"></span>
+    <span style="left: 90%; animation-delay: 2.5s;"></span>
   </div>
 
   <script>
+    const photos = [
+      {src: 'foto1.jpg', alt: 'Foto 1'},
+      {src: 'foto2.jpg', alt: 'Foto 2'},
+      {src: 'foto3.jpg', alt: 'Foto 3'},
+      {src: 'foto4.jpg', alt: 'Foto 4'}
+    ];
+
+    let currentIndex = 0;
+    const photoEl = document.getElementById('photo');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function changePhoto(direction) {
+      currentIndex += direction;
+
+      // Atualiza a imagem
+      photoEl.src = photos[currentIndex].src;
+      photoEl.alt = photos[currentIndex].alt;
+
+      // Desabilita botão quando no início ou fim
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === photos.length - 1;
+    }
+
     function tocarMusica() {
       document.getElementById('musica').play();
     }
   </script>
-
 </body>
 </html>
