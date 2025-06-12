@@ -84,34 +84,11 @@
       z-index: -1;
     }
 
-    .hearts span {
+    .heart {
       position: absolute;
-      display: block;
-      width: 20px;
-      height: 20px;
-      background: red;
-      transform: rotate(45deg);
-      animation: float 5s linear infinite;
-    }
-
-    .hearts span::before,
-    .hearts span::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: red;
-      border-radius: 50%;
-    }
-
-    .hearts span::before {
-      top: -10px;
-      left: 0;
-    }
-
-    .hearts span::after {
-      left: -10px;
-      top: 0;
+      width: 80px;
+      height: 80px;
+      animation: float 6s linear infinite;
     }
 
     @keyframes float {
@@ -140,12 +117,41 @@
   </div>
 
   <div class="hearts">
-    <span style="left: 10%; animation-delay: 0s;"></span>
-    <span style="left: 25%; animation-delay: 1s;"></span>
-    <span style="left: 40%; animation-delay: 2s;"></span>
-    <span style="left: 60%; animation-delay: 3s;"></span>
-    <span style="left: 75%; animation-delay: 4s;"></span>
-    <span style="left: 90%; animation-delay: 2.5s;"></span>
+    <svg class="heart" style="left: 10%; animation-delay: 0s;">
+      <defs>
+        <pattern id="foto1" patternUnits="objectBoundingBox" width="1" height="1">
+          <image href="foto1.jpg" width="100" height="100" preserveAspectRatio="xMidYMid slice" />
+        </pattern>
+      </defs>
+      <path d="M50 15 C20 -10, 0 30, 50 80 C100 30, 80 -10, 50 15 Z" fill="url(#foto1)" />
+    </svg>
+
+    <svg class="heart" style="left: 25%; animation-delay: 1s;">
+      <defs>
+        <pattern id="foto2" patternUnits="objectBoundingBox" width="1" height="1">
+          <image href="foto2.jpg" width="100" height="100" preserveAspectRatio="xMidYMid slice" />
+        </pattern>
+      </defs>
+      <path d="M50 15 C20 -10, 0 30, 50 80 C100 30, 80 -10, 50 15 Z" fill="url(#foto2)" />
+    </svg>
+
+    <svg class="heart" style="left: 40%; animation-delay: 2s;">
+      <defs>
+        <pattern id="foto3" patternUnits="objectBoundingBox" width="1" height="1">
+          <image href="foto3.jpg" width="100" height="100" preserveAspectRatio="xMidYMid slice" />
+        </pattern>
+      </defs>
+      <path d="M50 15 C20 -10, 0 30, 50 80 C100 30, 80 -10, 50 15 Z" fill="url(#foto3)" />
+    </svg>
+
+    <svg class="heart" style="left: 60%; animation-delay: 3s;">
+      <defs>
+        <pattern id="foto4" patternUnits="objectBoundingBox" width="1" height="1">
+          <image href="foto4.jpg" width="100" height="100" preserveAspectRatio="xMidYMid slice" />
+        </pattern>
+      </defs>
+      <path d="M50 15 C20 -10, 0 30, 50 80 C100 30, 80 -10, 50 15 Z" fill="url(#foto4)" />
+    </svg>
   </div>
 
   <script>
