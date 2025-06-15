@@ -162,3 +162,41 @@
     <span style="left: 60%; animation-delay: 3s;"></span>
     <span style="left: 75%; animation-delay: 4s;"></span>
     <span style="left: 90%; animation-delay: 2.5s;"></span>
+  </div>
+
+  <script>
+    const photos = [
+      {src: 'WhatsApp Image 2025-06-14 at 22.16.00.jpeg', alt: 'Foto 1'},
+      {src: 'WhatsApp Image 2025-06-14 at 22.43.03.jpeg', alt: 'Foto 2'},
+      {src: 'WhatsApp Image 2025-06-14 at 22.58.34.jpeg', alt: 'Foto 3'},
+      {src: 'WhatsApp Image 2025-06-14 at 22.34.16.jpeg', alt: 'Foto 4'}
+    ];
+
+    let currentIndex = 0;
+    const photoEl = document.getElementById('photo');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function changePhoto(direction) {
+      currentIndex += direction;
+      photoEl.src = photos[currentIndex].src;
+      photoEl.alt = photos[currentIndex].alt;
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === photos.length - 1;
+    }
+
+    function tocarMusica() {
+      const musica = document.getElementById('musica');
+      // Força o áudio a carregar para alguns navegadores mobile
+      musica.muted = true;
+      musica.play().then(() => {
+        musica.pause();
+        musica.muted = false;
+        musica.play();
+      }).catch((e) => {
+        console.log('Erro ao tentar tocar música:', e);
+      });
+    }
+  </script>
+</body>
+</html>
