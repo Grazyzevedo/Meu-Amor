@@ -39,7 +39,7 @@
       border-radius: 8px;
       color: white;
       cursor: pointer;
-      margin: 20px 10px 20px;
+      margin: 20px 10px 40px;
       animation: fadeIn 4s ease-in-out;
       user-select: none;
       transition: background-color 0.3s ease;
@@ -132,8 +132,6 @@
       0% { bottom: -20px; opacity: 1; }
       100% { bottom: 100%; opacity: 0; }
     }
-
-  
   </style>
 </head>
 <body>
@@ -141,12 +139,10 @@
   <h1>Feliz Aniversário, Amor! 🎉</h1>
   <p>Hoje é o seu dia, e eu quero te lembrar o quanto você é especial para mim. É um simples gesto para demonstrar um pouco da imensidão de amor que sinto por você. Mais tarde tem mais! Te amo! 💖</p>
 
-  <!-- Botão customizado -->
-  <button id="playBtn">Tocar Música 🎶</button>
+  <button onclick="tocarMusica()">Tocar Música 🎶</button>
 
-  <!-- Player visível como fallback -->
-  <audio id="musica" preload="auto" style="display: none;>
-    <source src="WhatsApp Audio 2025-06-14 at 22.54.39.mpeg" type="audio/mpeg" />
+  <audio id="musica">
+    <source src="/mnt/data/WhatsApp Audio 2025-06-14 at 22.54.39.mpeg" type="audio/mpeg" />
     Seu navegador não suporta áudio.
   </audio>
 
@@ -189,14 +185,9 @@
       nextBtn.disabled = currentIndex === photos.length - 1;
     }
 
-    const musica = document.getElementById('musica');
-    const playBtn = document.getElementById('playBtn');
-
-    playBtn.addEventListener('click', () => {
-      musica.play().catch(e => {
-        console.log('Erro ao reproduzir:', e);
-      });
-    });
+    function tocarMusica() {
+      document.getElementById('musica').play();
+    }
   </script>
 </body>
 </html>
