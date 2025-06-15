@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -139,7 +139,7 @@
   <h1>Feliz Aniversário, Amor! 🎉</h1>
   <p>Hoje é o seu dia, e eu quero te lembrar o quanto você é especial para mim. É um simples gesto para demonstrar um pouco da imensidão de amor que sinto por você. Mais tarde tem mais! Te amo! 💖</p>
 
-  <button onclick="tocarMusica()">Tocar Música 🎶</button>
+  <button id="playMusic">Tocar Música 🎶</button>
 
   <audio id="musica" preload="auto">
     <source src="/mnt/data/WhatsApp Audio 2025-06-14 at 22.54.39.mpeg" type="audio/mpeg" />
@@ -185,18 +185,13 @@
       nextBtn.disabled = currentIndex === photos.length - 1;
     }
 
-    function tocarMusica() {
+    document.getElementById('playMusic').addEventListener('click', function() {
       const musica = document.getElementById('musica');
-      // Força o áudio a carregar para alguns navegadores mobile
-      musica.muted = true;
-      musica.play().then(() => {
-        musica.pause();
-        musica.muted = false;
-        musica.play();
-      }).catch((e) => {
-        console.log('Erro ao tentar tocar música:', e);
+      musica.play().catch((error) => {
+        alert('O navegador bloqueou o áudio. Toque novamente para tentar!');
+        console.log(error);
       });
-    }
+    });
   </script>
 </body>
 </html>
