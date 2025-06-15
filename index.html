@@ -39,5 +39,126 @@
       border-radius: 8px;
       color: white;
       cursor: pointer;
-      margin: 20px 10px 20px;
+      margin: 20px 10px 40px;
       animation: fadeIn 4s ease-in-out;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover:enabled {
+      background-color: #ff2f57;
+    }
+
+    button:disabled {
+      background-color: #ffa1ab;
+      cursor: default;
+    }
+
+    .photo-book {
+      width: 400px;
+      height: 400px;
+      margin: 0 auto;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      overflow: hidden;
+      background: white;
+      position: relative;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .photo-book img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 15px;
+    }
+
+    .navigation {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hearts {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .hearts span {
+      position: absolute;
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 5s linear infinite;
+      border-radius: 5px 5px 0 0;
+    }
+
+    .hearts span::before,
+    .hearts span::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .hearts span::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .hearts span::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% { bottom: -20px; opacity: 1; }
+      100% { bottom: 100%; opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Feliz Aniversário, Amor! 🎉</h1>
+  <p>Hoje é o seu dia, e eu quero te lembrar o quanto você é especial para mim. É um simples gesto para demonstrar um pouco da imensidão de amor que sinto por você. Mais tarde tem mais! Te amo! 💖</p>
+
+  <button onclick="tocarMusica()">Tocar Música 🎶</button>
+
+  <audio id="musica" preload="auto">
+    <source src="/mnt/data/WhatsApp Audio 2025-06-14 at 22.54.39.mpeg" type="audio/mpeg" />
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <div class="photo-book">
+    <img id="photo" src="WhatsApp Image 2025-06-14 at 22.16.00.jpeg" alt="Foto 1" />
+  </div>
+
+  <div class="navigation">
+    <button id="prevBtn" onclick="changePhoto(-1)" disabled>← Página Anterior</button>
+    <button id="nextBtn" onclick="changePhoto(1)">Próxima Página →</button>
+  </div>
+
+  <div class="hearts">
+    <span style="left: 10%; animation-delay: 0s;"></span>
+    <span style="left: 25%; animation-delay: 1s;"></span>
+    <span style="left: 40%; animation-delay: 2s;"></span>
+    <span style="left: 60%; animation-delay: 3s;"></span>
+    <span style="left: 75%; animation-delay: 4s;"></span>
+    <span style="left: 90%; animation-delay: 2.5s;"></span>
