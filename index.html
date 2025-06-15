@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -139,10 +139,10 @@
   <h1>Feliz Aniversário, Amor! 🎉</h1>
   <p>Hoje é o seu dia, e eu quero te lembrar o quanto você é especial para mim. É um simples gesto para demonstrar um pouco da imensidão de amor que sinto por você. Mais tarde tem mais! Te amo! 💖</p>
 
-  <button onclick="tocarMusica()">Tocar Música🎶</button>
+  <button onclick="tocarMusica()">Tocar Música 🎶</button>
 
   <audio id="musica">
-    <source src="WhatsApp Audio 2025-06-14 at 22.54.39.mpeg" type="audio/mpeg" />
+    <source src="/mnt/data/WhatsApp Audio 2025-06-14 at 22.54.39.mpeg" type="audio/mpeg" />
     Seu navegador não suporta áudio.
   </audio>
 
@@ -179,12 +179,8 @@
 
     function changePhoto(direction) {
       currentIndex += direction;
-
-      // Atualiza a imagem
       photoEl.src = photos[currentIndex].src;
       photoEl.alt = photos[currentIndex].alt;
-
-      // Desabilita botão quando no início ou fim
       prevBtn.disabled = currentIndex === 0;
       nextBtn.disabled = currentIndex === photos.length - 1;
     }
