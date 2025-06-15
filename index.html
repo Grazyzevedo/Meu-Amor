@@ -133,9 +133,7 @@
       100% { bottom: 100%; opacity: 0; }
     }
 
-    audio {
-      margin-bottom: 40px;
-    }
+  
   </style>
 </head>
 <body>
@@ -147,7 +145,7 @@
   <button id="playBtn">Tocar Música 🎶</button>
 
   <!-- Player visível como fallback -->
-  <audio id="musica" preload="auto" controls>
+  <audio id="musica" preload="auto" style="display: none;>
     <source src="WhatsApp Audio 2025-06-14 at 22.54.39.mpeg" type="audio/mpeg" />
     Seu navegador não suporta áudio.
   </audio>
